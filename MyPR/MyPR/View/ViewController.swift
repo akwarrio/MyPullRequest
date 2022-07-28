@@ -18,7 +18,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func refreshPullRequest(_ sender: Any) {
+        vm?.fetchList()
+    }
+    
 }
 extension ViewController: UITableViewDataSource,UITableViewDelegate {
     

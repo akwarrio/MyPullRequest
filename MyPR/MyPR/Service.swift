@@ -14,7 +14,7 @@ class Service{
             return
         }
         var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("token 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("token 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", forHTTPHeaderField: "Authorization")
         urlRequest.addValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) { data, resp, error in
