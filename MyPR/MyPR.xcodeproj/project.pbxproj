@@ -13,10 +13,11 @@
 		D90D70252892FF1D004146F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90D70232892FF1D004146F7 /* LaunchScreen.storyboard */; };
 		D90D702E2893001A004146F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90D702C2893001A004146F7 /* Main.storyboard */; };
 		D90D703428930035004146F7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D702F28930035004146F7 /* TableViewCell.swift */; };
-		D90D703528930035004146F7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703028930035004146F7 /* Model.swift */; };
+		D90D703528930035004146F7 /* PRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703028930035004146F7 /* PRModel.swift */; };
 		D90D703628930035004146F7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703128930035004146F7 /* Service.swift */; };
 		D90D703728930035004146F7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703228930035004146F7 /* ViewModel.swift */; };
 		D90D703828930035004146F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703328930035004146F7 /* ViewController.swift */; };
+		D90D703A28931AC4004146F7 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D703928931AC4004146F7 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		D90D70262892FF1D004146F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D90D702D2893001A004146F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D90D702F28930035004146F7 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		D90D703028930035004146F7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D90D703028930035004146F7 /* PRModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRModel.swift; sourceTree = "<group>"; };
 		D90D703128930035004146F7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		D90D703228930035004146F7 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D90D703328930035004146F7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D90D703928931AC4004146F7 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,11 @@
 		D90D70172892FF1B004146F7 /* MyPR */ = {
 			isa = PBXGroup;
 			children = (
-				D90D703028930035004146F7 /* Model.swift */,
+				D90D70402893210D004146F7 /* Utilities */,
+				D90D703F289320E9004146F7 /* Model */,
+				D90D703E289320D3004146F7 /* ViewModel */,
+				D90D703B28932081004146F7 /* View */,
 				D90D703128930035004146F7 /* Service.swift */,
-				D90D702F28930035004146F7 /* TableViewCell.swift */,
-				D90D703328930035004146F7 /* ViewController.swift */,
-				D90D703228930035004146F7 /* ViewModel.swift */,
 				D90D702C2893001A004146F7 /* Main.storyboard */,
 				D90D70182892FF1B004146F7 /* AppDelegate.swift */,
 				D90D701A2892FF1B004146F7 /* SceneDelegate.swift */,
@@ -77,6 +79,39 @@
 				D90D70262892FF1D004146F7 /* Info.plist */,
 			);
 			path = MyPR;
+			sourceTree = "<group>";
+		};
+		D90D703B28932081004146F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D90D702F28930035004146F7 /* TableViewCell.swift */,
+				D90D703328930035004146F7 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D90D703E289320D3004146F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D90D703228930035004146F7 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D90D703F289320E9004146F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D90D703028930035004146F7 /* PRModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D90D70402893210D004146F7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D90D703928931AC4004146F7 /* DateFormatter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,13 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90D703A28931AC4004146F7 /* DateFormatter.swift in Sources */,
 				D90D703428930035004146F7 /* TableViewCell.swift in Sources */,
 				D90D70192892FF1B004146F7 /* AppDelegate.swift in Sources */,
 				D90D703628930035004146F7 /* Service.swift in Sources */,
 				D90D701B2892FF1B004146F7 /* SceneDelegate.swift in Sources */,
 				D90D703828930035004146F7 /* ViewController.swift in Sources */,
 				D90D703728930035004146F7 /* ViewModel.swift in Sources */,
-				D90D703528930035004146F7 /* Model.swift in Sources */,
+				D90D703528930035004146F7 /* PRModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
