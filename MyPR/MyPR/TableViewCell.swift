@@ -28,6 +28,10 @@ class TableViewCell: UITableViewCell {
     
     func setData(){
         
+        if let data = cellData?.pr {
+            
+        }
+        
     }
 
 
