@@ -8,19 +8,22 @@ import Foundation
 class Service{
     
     
-    class func fetchProduct(completionHandler: @escaping (_ result: [PR]?) -> Void) {
+    class func fetchProduct(completionHandler: @escaping (_ result: PullRequests?) -> Void) {
         
-        guard let url = URL(string: "https://api.github.com/repos/akwarrio/MyPullRequest/pulls") else {
+        guard let url = URL(string: "https://api.github.com/repos/akwarrio/MyPullRequest/pulls?state=closed") else {
             return
         }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("token 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, resp, error in
+        let task = session.dataTask(with: urlRequest) { data, resp, error in
             let decoder = JSONDecoder()
             guard let data = data else {
                 return
             }
-            if let result = try? decoder.decode(PRList.self, from: data) {
-                completionHandler(result.prS)
+            if let result = try? decoder.decode(PullRequests.self, from: data) {
+                completionHandler(result)
             }
         }
         task.resume()

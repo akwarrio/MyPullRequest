@@ -15,7 +15,7 @@ protocol ViewDelegate: AnyObject {
 
 class ViewModel{
     
-    private var pullRequests: [PR]?
+    private var pullRequests: PullRequests?
     private weak var delegate: ViewDelegate?
     init(delegate: ViewDelegate) {
         self.delegate = delegate
@@ -33,10 +33,24 @@ class ViewModel{
     }
     func cellDataAtRow(index: Int) -> CellData? {
         if let data = pullRequests?[index] {
-            let cellData = CellData(product: data)
+            let cellData = formatData(data: data)
             return cellData
         }
         return nil
+    }
+    
+    private func formatData(data: PR) -> CellData {
+        var cellData = CellData()
+        cellData.title = data.title
+        if let created = data.created_at {
+            cellData.created = DateFormatters.stringToFormatString(str: created)
+        }
+        if let closed = data.closed_at {
+            cellData.closedOn = DateFormatters.stringToFormatString(str: closed)
+        }
+        cellData.userName = data.user?.login
+        cellData.userAvatar = data.user?.avatar_url
+        return cellData
     }
     
 }

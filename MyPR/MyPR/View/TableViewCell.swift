@@ -8,7 +8,11 @@
 import UIKit
 
 struct CellData {
-    var pr: PR
+    var title: String?
+    var created: String?
+    var closedOn: String?
+    var userName: String?
+    var userAvatar: String?
 }
 
 class TableViewCell: UITableViewCell {
@@ -28,8 +32,15 @@ class TableViewCell: UITableViewCell {
     
     func setData(){
         
-        if let data = cellData?.pr {
-            
+        if let data = cellData{
+            TitleLbl.text = "# " + (data.title ?? "")
+            createdOnLbl.text = "Created On: " + (data.created ?? "")
+            closedOnLbl.text = "Closed On: " + (data.closedOn ?? "")
+            usernameLbl.text = data.userName
+            guard let avatarStr = data.userAvatar else {
+                return
+            }
+            userImage.setCustomImage(avatarStr)
         }
         
     }
